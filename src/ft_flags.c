@@ -6,12 +6,13 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:31:14 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/10 21:31:58 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:53:12 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+// this function directs the 'flag' to their respective printers
 int	ft_flags(char *text, va_list args, int counter)
 {
 	if (*text == 'c' || *text == '%')
