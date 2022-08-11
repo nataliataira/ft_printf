@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_p.c                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 21:21:44 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/11 04:30:26 by ngomes-t         ###   ########.fr       */
+/*   Created: 2022/07/14 00:30:58 by ngomes-t          #+#    #+#             */
+/*   Updated: 2022/08/11 04:18:21 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_format_p(const char *text, va_list args, int counter)
+int	ft_printf(const char *text, ...)
 {
-	unsigned long	adress;
-	char			*s;
+	int		counter;
+	va_list	args;
 
-	if (*text == 'p')
+	counter = 0;
+	va_start(args, text);
+	while (*text)
 	{
-		adress = va_arg(args, unsigned long);
-		if (!adress)
+		if (*text != '%')
 		{
-			s = "(nil)";
-			ft_putstr(s);
-			counter += ft_strlen(s);
+			ft_putchar(*text);
+			counter++;
 		}
 		else
 		{
-			ft_putchar('0');
-			ft_putchar('x');
-			ft_putnum_base(adress, HEXLOWER);
-			counter += ft_count_digits(adress, 16) + 2;
+			text++;
+			counter = ft_flags(text, args, counter);
+			text++;
 		}
 	}
+	va_end(args);
 	return (counter);
 }

@@ -6,13 +6,13 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 22:33:20 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/10 20:44:50 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/11 04:24:34 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_format_c(char *text, va_list args, int counter)
+int	ft_format_c(const char *text, va_list args, int counter)
 {
 	char	c;
 
@@ -21,7 +21,7 @@ int	ft_format_c(char *text, va_list args, int counter)
 		ft_putchar('%');
 		counter++;
 	}
-	else if (text == 'c')
+	else if (*text == 'c')
 	{
 		c = va_arg(args, int);
 		ft_putchar(c);

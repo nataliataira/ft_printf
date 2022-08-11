@@ -6,13 +6,13 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:45:25 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/10 21:44:55 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:30:02 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_format_xp(char *text, va_list args, int counter)
+int	ft_format_xu(const char *text, va_list args, int counter)
 {
 	unsigned int	digit;
 
@@ -32,7 +32,7 @@ int	ft_format_xp(char *text, va_list args, int counter)
 	{
 		digit = va_arg(args, unsigned int);
 		ft_putnum_base(digit, DECIMAL);
-		counter += ft_count_digits(num, 10);
+		counter += ft_count_digits(digit, 10);
 	}
 	return (counter);
 }
