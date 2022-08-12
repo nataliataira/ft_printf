@@ -6,7 +6,7 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:30:58 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/11 04:18:21 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/11 23:51:53 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printf(const char *text, ...)
 	{
 		if (*text != '%')
 		{
-			ft_putchar(*text);
+			write(1, text++, 1);
 			counter++;
 		}
 		else

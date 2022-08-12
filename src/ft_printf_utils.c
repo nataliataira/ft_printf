@@ -6,7 +6,7 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:33:20 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/11 21:10:53 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/12 20:28:13 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-// this function prints an array of chars
-void	ft_putstr(const char *s)
-{
-	write(1, s, ft_strlen(s));
-}
-
 // this function prints numbers from different bases
 void	ft_putnum_base(unsigned long number, char *base)
 {
@@ -31,9 +25,7 @@ void	ft_putnum_base(unsigned long number, char *base)
 
 	len_base = ft_strlen(base);
 	if (number / len_base > 0)
-	{
 		ft_putnum_base(number / len_base, base);
-	}
 	ft_putchar(base[number % len_base]);
 }
 
@@ -43,7 +35,7 @@ int	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
-	while (*s)
+	while (s[i])
 		i++;
 	return (i);
 }

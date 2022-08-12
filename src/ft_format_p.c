@@ -6,7 +6,7 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 21:21:44 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/11 04:30:26 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/11 23:57:44 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ int	ft_format_p(const char *text, va_list args, int counter)
 		if (!adress)
 		{
 			s = "(nil)";
-			ft_putstr(s);
+			write(1, s, ft_strlen(s));
 			counter += ft_strlen(s);
 		}
 		else
 		{
-			ft_putchar('0');
-			ft_putchar('x');
+			write(1, "0x", 2);
 			ft_putnum_base(adress, HEXLOWER);
 			counter += ft_count_digits(adress, 16) + 2;
 		}

@@ -6,7 +6,7 @@
 /*   By: ngomes-t <ngomes-t@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 22:33:20 by ngomes-t          #+#    #+#             */
-/*   Updated: 2022/08/11 04:32:23 by ngomes-t         ###   ########.fr       */
+/*   Updated: 2022/08/12 20:22:26 by ngomes-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_format_s(const char *text, va_list args, int counter)
 		s = va_arg(args, char *);
 		if (!s)
 			s = "(null)";
-		ft_putstr(s);
+		write(1, s, ft_strlen(s));
+		counter += ft_strlen(s);
 	}
-	counter += ft_strlen(s);
 	return (counter);
 }
